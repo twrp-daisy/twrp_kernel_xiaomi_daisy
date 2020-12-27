@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 4.9.247 Kernel Configuration
+# Linux/arm64 4.9.248 Kernel Configuration
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
@@ -380,6 +380,7 @@ CONFIG_ARCH_MSM8953=y
 # CONFIG_ARCH_XGENE is not set
 # CONFIG_ARCH_ZX is not set
 # CONFIG_ARCH_ZYNQMP is not set
+CONFIG_MACH_XIAOMI_CLK_MOD=y
 
 #
 # Bus support
@@ -1902,10 +1903,7 @@ CONFIG_DIAG_USES_SMD=y
 # CONFIG_TTY_PRINTK is not set
 # CONFIG_HVC_DCC is not set
 # CONFIG_IPMI_HANDLER is not set
-CONFIG_HW_RANDOM=y
-# CONFIG_HW_RANDOM_TIMERIOMEM is not set
-# CONFIG_HW_RANDOM_MSM is not set
-CONFIG_HW_RANDOM_MSM_LEGACY=y
+# CONFIG_HW_RANDOM is not set
 
 #
 # PCMCIA character devices
@@ -1916,6 +1914,7 @@ CONFIG_MSM_SMD_PKT=y
 # CONFIG_XILLYBUS is not set
 CONFIG_MSM_ADSPRPC=y
 # CONFIG_MSM_RDBG is not set
+CONFIG_SRANDOM=y
 
 #
 # I2C support
@@ -3234,7 +3233,6 @@ CONFIG_USB_EHSET_TEST_FIXTURE=y
 # CONFIG_USB_HSIC_USB3503 is not set
 # CONFIG_USB_HSIC_USB4604 is not set
 # CONFIG_USB_LINK_LAYER_TEST is not set
-# CONFIG_USB_CHAOSKEY is not set
 
 #
 # USB Physical Layer drivers
@@ -3733,7 +3731,6 @@ CONFIG_USB_BAM=y
 CONFIG_MSM_EXT_DISPLAY=y
 CONFIG_MSM_RMNET_BAM=y
 CONFIG_MACH_XIAOMI_MSM8953=y
-CONFIG_MACH_XIAOMI_CLK_MOD=y
 
 #
 # Xiaomi MSM8953 board selection
