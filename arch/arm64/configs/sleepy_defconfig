@@ -385,7 +385,6 @@ CONFIG_ARCH_MSM8953=y
 # CONFIG_ARCH_XGENE is not set
 # CONFIG_ARCH_ZX is not set
 # CONFIG_ARCH_ZYNQMP is not set
-CONFIG_MACH_XIAOMI_CLK_MOD=y
 
 #
 # Bus support
