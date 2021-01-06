@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  compile:
+   docker:
+      - image: fr3akyphantom/droid-builder:latest
+   steps:
+      - run:
+          command: |
+            git clone https://github.com/LinkBoi00/ci-twrp-daisy-files -b kernel-twrp ~/kernel
+            cd ~/kernel && bash build-kernel-circleci.sh
+      - store_artifacts:
+          path: ~/final/ 
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
