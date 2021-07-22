@@ -122,3 +122,8 @@ kernel/configs/android-*.cfg
 #Ignoring Android.bp link file
 #
 Android.bp
+
+environment/
+toolchain/
+AnyKernel3/
+out/
