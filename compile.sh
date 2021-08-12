@@ -21,29 +21,14 @@ make O=out clean && make O=out mrproper
 make O=out sakura_defconfig
 make O=out -j$(nproc --all)
 
-# ZIP kernel function
-zip_kernelimage() {
-    rm -rf "$(pwd)"/AnyKernel3/Image.gz-dtb
-    cp "$(pwd)"/out/arch/arm64/boot/Image.gz-dtb AnyKernel3
-    rm -rf "$(pwd)"/AnyKernel3/*.zip
-    BUILD_TIME=$(date +"%d%m%Y-%H%M")
-    cd AnyKernel3 || exit
-    KERNEL_NAME="Mystique-Kernel-POSP-"${BUILD_TIME}""
-    zip -r9 "$KERNEL_NAME".zip ./*
-    cd ..
-}
-
 # Finish up
 FILE="out/arch/arm64/boot/Image.gz-dtb"
 if [ -f "$FILE" ]; then
-    zip_kernelimage
-    echo "The kernel has successfully been compiled and can be found in $(pwd)/AnyKernel3/"$KERNEL_NAME".zip"
-    FILE_CI="/drone/src/AnyKernel3/"$KERNEL_NAME".zip"
-    if [ -f "$FILE_CI" ]; then
-        curl --connect-timeout 10 -T "$FILE_CI" https://oshi.at
-        curl --connect-timeout 10 --upload-file "$FILE_CI" https://transfer.sh
+    if [ -f "/drone/src/$FILE" ]; then
+        curl --connect-timeout 10 -T "$FILE" https://oshi.at
+        curl --connect-timeout 10 --upload-file "$FILE" https://transfer.sh
         echo " "
-    elif [ ! -f "$FILE_CI" ] && [ $(whoami) = "node" ]; then
+    elif [ ! -f "/drone/src/$FILE" ] && [ $(whoami) = "node" ]; then
         exit 1
     fi
 fi
