@@ -5,7 +5,8 @@ git clone --depth=1 https://github.com/akhilnarang/scripts environment
 cd environment && bash setup/android_build_env.sh && cd ..
 
 # Clone the toolchain and AnyKernel3
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm64 toolchain
+git clone https://github.com/mvaisakh/gcc-arm64 toolchain
+cd toolchain && git reset --hard 3c40809e66c86ed5d02dcf256fabbf4e03aa4e7f && cd ..
 git clone --depth=1 https://github.com/Couchpotato-sauce/AnyKernel3 AnyKernel3 # TEMP
 
 # Export some environment variables
